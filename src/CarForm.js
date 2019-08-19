@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import Dropdown from 'react-dropdown'
+import axios from 'axios';
 import 'react-dropdown/style.css'
 import './index.css'
-import {carMakes} from "./helpers/helperObjects";
+import {carMakes, carModels, carYear} from "./helpers/helperObjects";
 
 
 class CarForms extends Component {
@@ -34,8 +35,16 @@ class CarForms extends Component {
 
 
     handleSubmit(event) {
-        alert('Car Added');
-        console.log(this.state);
+        axios.post('/cars', {
+            make: this.state.make,
+            model: this.state.model,
+            model_year: this.state.year
+        }).then(response => {
+            this.setState({make: '', model: '', year: ''});
+            alert(response.data.message);
+            console.log(response.data.message)
+        })
+            .catch(err => console.log(err));
         event.preventDefault();
     }
     render() {
@@ -53,11 +62,11 @@ class CarForms extends Component {
                             </label>
                             <label>
                                 Model:
-                                <Dropdown options={carMakes} onChange={this.handleModelChange} value={this.state.model} placeholder="Select an option"/>
+                                <Dropdown options={carModels} onChange={this.handleModelChange} value={this.state.model} placeholder="Select an option"/>
                             </label>
                             <label>
                                 Year:
-                                <Dropdown options={carMakes} onChange={this.handleYearChange} value={this.state.year} placeholder="Select an option"/>
+                                <Dropdown options={carYear} onChange={this.handleYearChange} value={this.state.year} placeholder="Select an option"/>
                             </label>
                         </div>
                         <input type="submit" value="Submit"/>

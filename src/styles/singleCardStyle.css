@@ -1,0 +1,35 @@
+.singleCard {
+    border: 1px solid black ;
+    background: lightgray;
+    width: 168px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 10px;
+    padding: 8px;
+}
+
+.allCarsCards {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.edit {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    elevation: 0;
+    margin-top: 1px;
+    float: right;
+    color: dodgerblue;
+}
+
+.delete {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    elevation: 0;
+    margin-top: 1px;
+    float: left;
+    color: darkred;
+}

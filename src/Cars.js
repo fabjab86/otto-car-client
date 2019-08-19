@@ -1,18 +1,28 @@
 import React, {Component} from 'react';
 import Stats from "./Stats";
 import CarForms from "./CarForm";
-import CarCard from "./CarCard";
-
+import CarsCardList from "./CarsCardList";
+import axios from 'axios';
 
 
 class Cars extends Component{
     constructor(props) {
         super(props);
-        this.state = {view: 'cars'};
+        this.state = {view: 'cars', allCars : []};
 
         this.viewStats = this.viewStats.bind(this);
     }
 
+    componentDidMount() {
+        axios.get('/cars')
+            .then(response => {
+                this.setState({allCars: response.data.data});
+                console.log(response.data);
+                console.log(this.state.allCars)
+            })
+            .catch(err => console.log(err))
+
+    }
 
 
     isCarView = () => this.state.view === 'cars';
@@ -26,17 +36,18 @@ class Cars extends Component{
 
         return (
             <div>
+                <button onClick={this.viewStats} >{this.isCarView() ? 'View stats' : 'View cars'}</button>
+
                 <div>
                 {this.state.view === 'cars' ?  (
                     <div>
            <CarForms />
-           <CarCard />
+           <CarsCardList allCars={this.state.allCars}/>
                     </div>
         ) : (
             <Stats/>
             )}
                 </div>
-                <button onClick={this.viewStats} >{this.isCarView() ? 'stats' : 'cars'}</button>
             </div>
 
 
