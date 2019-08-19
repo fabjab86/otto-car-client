@@ -2,10 +2,10 @@ import React from 'react';
 import './styles/singleCardStyle.css'
 import SingleCardDetails from "./SingleCardDetails";
 
-const SingleCarCard = ({car}) => {
+const SingleCarCard = ({car, getAllCars}) => {
 
     return (
-       <SingleCardDetails car={car} />
+       <SingleCardDetails car={car} getAllCars={getAllCars} />
     )
 };
 

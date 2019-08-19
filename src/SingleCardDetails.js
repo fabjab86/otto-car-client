@@ -1,6 +1,14 @@
 import React from 'react';
+import axios from 'axios';
 
-const SingleCardDetails = ({car}) => {
+const SingleCardDetails = ({car, getAllCars}) => {
+
+    const deleteCar = (carId) => {
+        axios.delete(`/cars?carId='${carId}'`)
+            .then(response => console.log(response))
+            .then(() => getAllCars())
+            .catch(err => console.log(err))
+    };
 
     return(
 
@@ -22,7 +30,7 @@ const SingleCardDetails = ({car}) => {
                     Active: {car.active.toString()}
                 </p>
                 <button className={"edit"}>Edit</button>
-                <button className={"delete"} onClick={() => {}}>Delete</button>
+                <button className={"delete"} onClick={() => {deleteCar(car.car_id)}}>Delete</button>
             </div>
 
         </div>

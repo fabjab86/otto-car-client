@@ -20,17 +20,14 @@ class CarForms extends Component {
 
     handleMakeChange(event) {
         this.setState({make: event.value});
-        console.log(event)
     }
 
     handleModelChange(event) {
         this.setState({model: event.value});
-        console.log(event)
     }
 
     handleYearChange(event) {
         this.setState({year: event.value});
-        console.log(event)
     }
 
 
@@ -42,8 +39,7 @@ class CarForms extends Component {
         }).then(response => {
             this.setState({make: '', model: '', year: ''});
             alert(response.data.message);
-            console.log(response.data.message)
-        })
+        }).then(() => this.props.getAllCars())
             .catch(err => console.log(err));
         event.preventDefault();
     }
@@ -58,15 +54,27 @@ class CarForms extends Component {
 
                             <label>
                                 Make:
-                                <Dropdown options={carMakes} onChange={this.handleMakeChange} value={this.state.make} placeholder="Select an option"/>
+                                <Dropdown
+                                    options={carMakes}
+                                    onChange={this.handleMakeChange}
+                                    value={this.state.make}
+                                    placeholder="Select an option"/>
                             </label>
                             <label>
                                 Model:
-                                <Dropdown options={carModels} onChange={this.handleModelChange} value={this.state.model} placeholder="Select an option"/>
+                                <Dropdown
+                                    options={carModels}
+                                    onChange={this.handleModelChange}
+                                    value={this.state.model}
+                                    placeholder="Select an option"/>
                             </label>
                             <label>
                                 Year:
-                                <Dropdown options={carYear} onChange={this.handleYearChange} value={this.state.year} placeholder="Select an option"/>
+                                <Dropdown
+                                    options={carYear}
+                                    onChange={this.handleYearChange}
+                                    value={this.state.year}
+                                    placeholder="Select an option"/>
                             </label>
                         </div>
                         <input type="submit" value="Submit"/>

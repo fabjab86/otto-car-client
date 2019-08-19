@@ -11,17 +11,19 @@ class Cars extends Component{
         this.state = {view: 'cars', allCars : []};
 
         this.viewStats = this.viewStats.bind(this);
+        this.getAllCars = this.getAllCars.bind(this);
     }
 
-    componentDidMount() {
+    getAllCars() {
         axios.get('/cars')
             .then(response => {
                 this.setState({allCars: response.data.data});
-                console.log(response.data);
-                console.log(this.state.allCars)
             })
             .catch(err => console.log(err))
+    }
 
+    componentDidMount() {
+        this.getAllCars()
     }
 
 
@@ -41,8 +43,8 @@ class Cars extends Component{
                 <div>
                 {this.state.view === 'cars' ?  (
                     <div>
-           <CarForms />
-           <CarsCardList allCars={this.state.allCars}/>
+           <CarForms getAllCars={this.getAllCars}/>
+           <CarsCardList allCars={this.state.allCars} getAllCars={this.getAllCars}/>
                     </div>
         ) : (
             <Stats/>
