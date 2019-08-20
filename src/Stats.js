@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import axios from 'axios';
-import 'react-table/react-table.css'
 import Table from "react-bootstrap/Table";
 import './styles/carsTable.css'
 

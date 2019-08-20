@@ -1,68 +1,51 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# </a>Otto Car Client
 
-## Available Scripts
+[Test case scenario](#testcase) |
+[How to use](#howto)|
+[Test](#test) |
+[Code Requirements](#reqs)|
+[Sample Views](#sample) <br>
 
-In the project directory, you can run:
+### Introduction  
+This is an SPA built with React that utilizes a REST API built with node.
 
-### `npm start`
+### <a name="testcase"></a>Test Case Scenario :
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Case 1** User can view all cars  
+**Case 2** User can update a car details  
+**Case 3** User can delete a car  
+**Case 4** User can add a car  
+**Case 5** User can view cars stats  
+**Case 6** User can view http requests stats  
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
 
-### `npm test`
+### <a name="howto"></a>How to use :
+####Requirement  
+You must clone the [ottoCarServer](https://github.com/fabjab86/ottoCarServer) project and run the server locally  
+_Step 1_  
+`git clone git@github.com:fabjab86/otto-car-client.git`  
+_Step 2_  
+From the command line type `npm start`  
+_Step 3_
+The browser will open localhost:3030 then you can interact with the website 
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### <a name="test"></a>How to test :
+Regretfully there are no tests at the moment 
 
-### `npm run build`
+### <a name="reqs"></a>Code Requirement :
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+####Front End
+The front-end must contain two views.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+The first view (Cars) contains a form and a table, where a user can add and view cars.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The second view (Statistics) contains a table with statistics, described below.  
 
-### `npm run eject`
+### <a name="sample"></a>Sample Views :
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![](src/Screenshot1.png) <br>    
+![](src/Screenshot2.png) <br>  
+![](src/Screenshot3.png) <br>  
+![](src/Screenshot4.png) <br>  
+![](src/Screenshot5.png) <br>  
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
