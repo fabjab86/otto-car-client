@@ -26,7 +26,10 @@ class Stats extends Component {
             }
 
         )
-            .catch(err => console.log(err))
+            .catch(err => {
+                alert(err);
+                console.log(err)
+            })
     }
 
     render() {

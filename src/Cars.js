@@ -21,7 +21,10 @@ class Cars extends Component{
             .then(response => {
                 this.setState({allCars: response.data.data});
             })
-            .catch(err => console.log(err))
+            .catch((err) => {
+                alert(err);
+                console.log(err.message)}
+                )
     }
 
     componentDidMount() {

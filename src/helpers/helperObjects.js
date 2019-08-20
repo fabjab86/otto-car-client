@@ -25,3 +25,8 @@ export const carYear = [
     { value: '2003' },
     { value: '2004'},
 ];
+
+export const active = [
+    {value: 'True'},
+    {value: 'False'}
+];

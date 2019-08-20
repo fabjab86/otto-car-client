@@ -16,7 +16,7 @@ import PropTypes from 'prop-types';
 class CarForm extends Component {
     constructor(props) {
         super(props);
-        this.state = {make: '', model: '', year: ''};
+        this.state = {make: '', model: '', model_year: ''};
 
         this.handleMakeChange = this.handleMakeChange.bind(this);
         this.handleModelChange = this.handleModelChange.bind(this);
@@ -34,7 +34,7 @@ class CarForm extends Component {
     }
 
     handleYearChange(event) {
-        this.setState({year: event.target.innerText});
+        this.setState({model_year: event.target.innerText});
     }
 
 
@@ -42,13 +42,16 @@ class CarForm extends Component {
         axios.post('/cars', {
             make: this.state.make,
             model: this.state.model,
-            model_year: this.state.year
+            model_year: this.state.model_year
         }).then(response => {
-            this.setState({make: '', model: '', year: ''});
+            this.setState({make: '', model: '', model_year: ''});
             alert(response.data.message);
         }).then(() => this.props.getAllCars())
-            .catch(err => console.log(err));
-        event.preventDefault();
+            .catch(err => {
+                alert(err);
+                console.log(err)
+            });
+        event.preventDefault(event);
     }
     render() {
 
@@ -61,12 +64,12 @@ class CarForm extends Component {
                         <Form.Group controlId="formBasicEmail">
                             <Row>
                                 <Col className={'dropDownLabel'}>
-                                    <Form.Label>Car Make</Form.Label>
+                                    <Form.Label className={'formLabel'}>Car Make</Form.Label>
                                 </Col>
                                 <Col>
                             <DropdownButton
                                 id="dropdown-basic-button"
-                                title={this.state.make === "" ? "Select  " : this.state.make}
+                                title={this.state.make === "" ? "Select" : this.state.make}
                                 variant={'success'}>
                                     {carMakes.map((car, index) => {
                                         return (
@@ -85,12 +88,12 @@ class CarForm extends Component {
                         <Form.Group controlId="formBasicEmail">
                             <Row>
                                 <Col className={'dropDownLabel'}>
-                                    <Form.Label>Car Model</Form.Label>
+                                    <Form.Label className={'formLabel'}>Car Model</Form.Label>
                                 </Col>
                             <Col>
                                 <DropdownButton
                                     id="dropdown-basic-button"
-                                    title={this.state.model === "" ? "Select  " : this.state.model}
+                                    title={this.state.model === "" ? "Select" : this.state.model}
                                     variant={'success'}>
                                 {carModels.map((car, index) => {
                                     return (
@@ -107,11 +110,11 @@ class CarForm extends Component {
                         <Form.Group controlId="formBasicEmail">
                             <Row>
                                 <Col className={'dropDownLabel'}>
-                                    <Form.Label>Car Year</Form.Label></Col>
+                                    <Form.Label className={'formLabel'}>Car Year</Form.Label></Col>
                                 <Col>
                             <DropdownButton
                                 id="dropdown-basic-button"
-                                title={this.state.year === "" ? "Select  " : this.state.year}
+                                title={this.state.model_year === "" ? "Select" : this.state.model_year}
                                 variant={'success'}>
                                 {carYear.map((car, index) => {
                                     return (
