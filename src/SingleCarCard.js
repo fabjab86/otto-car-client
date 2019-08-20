@@ -1,12 +1,18 @@
 import React from 'react';
 import './styles/singleCardStyle.css'
-import SingleCardDetails from "./SingleCardDetails";
+import SingleCarDetails from "./SingleCarDetails";
+import PropTypes from 'prop-types';
 
 const SingleCarCard = ({car, getAllCars}) => {
 
     return (
-       <SingleCardDetails car={car} getAllCars={getAllCars} />
+       <SingleCarDetails car={car} getAllCars={getAllCars} />
     )
+};
+
+SingleCarCard.propTypes = {
+    car: PropTypes.object.isRequired,
+    getAllCars: PropTypes.func.isRequired
 };
 
 export default SingleCarCard

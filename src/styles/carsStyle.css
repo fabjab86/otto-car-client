@@ -1,4 +1,5 @@
 .viewCarOrStatsButton {
     padding: 20px;
-    clear: left;
+    float: right;
+    margin-right: 10px;
 }

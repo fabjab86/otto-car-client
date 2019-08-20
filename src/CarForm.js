@@ -1,15 +1,16 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import 'react-dropdown/style.css'
-import './index.css'
+import './styles/index.css'
 import {carMakes, carModels, carYear} from "./helpers/helperObjects";
 import Form from "react-bootstrap/Form";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
-import './carForm.css'
+import './styles/carForm.css'
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+import PropTypes from 'prop-types';
 
 
 class CarForm extends Component {
@@ -125,6 +126,7 @@ class CarForm extends Component {
                             </Row>
                         </Form.Group>
                             <Button
+                                id={"carFormSubmitButton"}
                                 variant="primary"
                                 type="submit"
                                 onClick={this.handleSubmit}>
@@ -137,5 +139,9 @@ class CarForm extends Component {
     }
 
 }
+
+CarForm.propTypes = {
+    getAllCars: PropTypes.func.isRequired
+};
 
 export default CarForm;

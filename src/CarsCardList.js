@@ -1,6 +1,7 @@
 import React from 'react';
 import SingleCarCard from "./SingleCarCard";
 import './styles/singleCardStyle.css'
+import PropTypes from 'prop-types';
 
 
 const CarsCardList = ({allCars, getAllCars}) => {
@@ -12,6 +13,11 @@ const CarsCardList = ({allCars, getAllCars}) => {
             </div>
         )
     )
+};
+
+CarsCardList.propTypes = {
+    allCars: PropTypes.array.isRequired,
+    getAllCars : PropTypes.func.isRequired
 };
 
 export default CarsCardList;

@@ -2,11 +2,11 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    padding-top: 30px;
+    padding-top: 80px;
     background-color: white;
     align-items: center;
     border-radius: 10px;
-
+    margin-bottom: 70px;
 }
 
 .dropDownLabel {
@@ -16,12 +16,18 @@
 }
 
 .mainFormDiv {
-    border-radius: 10px;
-    border: black solid 3px;
-    margin: 30px 20px 40px 20px;
+    border-bottom: black solid 2px;
+    margin: 30px 20px 40px 15px;
 
 }
 
 .formHeader {
     padding: 10px
+}
+
+#dropdown-basic-button {
+    width: 200px
+}
+
+#carFormSubmitButton{
 }
