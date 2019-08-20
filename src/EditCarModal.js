@@ -72,10 +72,14 @@ class EditCarModal extends Component {
             }).then(response => console.log(response))
             .then(this.props.onHide())
             .then(() => this.props.getAllCars())
-            .catch((err) => {
-                alert(err);
+            .catch((err) => {       if (err.response.status === 422) {
+                alert('Invalid request');
                 console.log(err)
-            })
+            }
+                if (err.response.status === 500) {
+                    alert('Internal Server Error');
+                    console.log(err)
+                }})
     }
 
     render() {

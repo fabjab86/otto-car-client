@@ -48,8 +48,14 @@ class CarForm extends Component {
             alert(response.data.message);
         }).then(() => this.props.getAllCars())
             .catch(err => {
-                alert(err);
-                console.log(err)
+                if (err.response.status === 422) {
+                    alert('Invalid request');
+                    console.log(err)
+                }
+                if (err.response.status === 500) {
+                    alert('Internal Server Error');
+                    console.log(err)
+                }
             });
         event.preventDefault(event);
     }

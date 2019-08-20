@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import Stats from "./Stats";
-import CarForm from "./CarForm";
 import CarsCardList from "./CarsCardList";
 import axios from 'axios';
 import Button from "react-bootstrap/Button";
 import './styles/carsStyle.css'
+import AddNewCarButton from "./AddNewCarButton";
 
 
 class Cars extends Component{
@@ -22,9 +22,15 @@ class Cars extends Component{
                 this.setState({allCars: response.data.data});
             })
             .catch((err) => {
-                alert(err);
-                console.log(err.message)}
-                )
+                if (err.response.status === 422) {
+                    alert('Invalid request');
+                    console.log(err)
+                }
+                if (err.response.status === 500) {
+                    alert('Internal Server Error');
+                    console.log(err)
+                }
+            })
     }
 
     componentDidMount() {
@@ -41,20 +47,24 @@ class Cars extends Component{
     }
 
 
+
     render() {
 
         return (
             <div>
-                <div className={'viewCarOrStatsButton'}>
-                    <Button variant={this.isCarView() ? 'info' : 'primary'} onClick={this.viewStats}>
-                        {this.isCarView() ? 'View stats' : 'View cars'}
-                    </Button>
+                <div className="mainHeader">
+                    <img src={require("./otto-car-logo.png")} alt="logo" />
+                    <div className={'viewCarOrStatsButton'}>
+                        <Button variant={this.isCarView() ? 'info' : 'primary'} onClick={this.viewStats}>
+                            {this.isCarView() ? 'View stats' : 'View cars'}
+                        </Button>
+                    </div>
                 </div>
                 <div>
                     {this.state.view === 'cars' ?  (
                         <div>
-                           <CarForm getAllCars={this.getAllCars}/>
-                           <CarsCardList allCars={this.state.allCars} getAllCars={this.getAllCars}/>
+                            <AddNewCarButton getAllCars={this.getAllCars}/>
+                            <CarsCardList allCars={this.state.allCars} getAllCars={this.getAllCars}/>
                         </div>
                     ) : (
                         <Stats/>
