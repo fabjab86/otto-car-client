@@ -30,7 +30,8 @@ _Step 3_
 The browser will open localhost:3030 then you can interact with the website 
 
 ### <a name="test"></a>How to test :
-Regretfully there are no tests at the moment 
+Regretfully there are no tests at the moment.  
+To run the linter `npm run lint`  
 
 ### <a name="reqs"></a>Code Requirement :
 

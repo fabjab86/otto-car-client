@@ -8,6 +8,7 @@ import Col from "react-bootstrap/Col";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
 import Button from "react-bootstrap/Button";
+import PropTypes from 'prop-types';
 
 
 class AddNewCarModal extends Component {
@@ -165,5 +166,10 @@ class AddNewCarModal extends Component {
         )
     }
 }
+
+AddNewCarModal.propTypes = {
+    getAllCars: PropTypes.func.isRequired,
+    onHide: PropTypes.func.isRequired
+};
 
 export default AddNewCarModal;

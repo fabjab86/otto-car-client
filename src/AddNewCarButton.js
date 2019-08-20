@@ -3,6 +3,7 @@ import ButtonToolbar from "react-bootstrap/ButtonToolbar";
 import Button from "react-bootstrap/Button";
 import AddNewCarModal from "./AddNewCarModal";
 import './styles/addNewCarButton.css'
+import PropTypes from 'prop-types';
 
 const AddNewCarButton = (props) => {
     const [modalShow, setModalShow] = React.useState(false);
@@ -23,6 +24,10 @@ const AddNewCarButton = (props) => {
         </div>
     )
 
+};
+
+AddNewCarButton.propTypes = {
+    getAllCars: PropTypes.func.isRequired,
 };
 
 export default AddNewCarButton;
