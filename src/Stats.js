@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import axios from 'axios';
-import ReactTable from 'react-table'
 import 'react-table/react-table.css'
+import Table from "react-bootstrap/Table";
+import './carsTable.css'
 
 class Stats extends Component {
     constructor(props) {
@@ -13,7 +14,7 @@ class Stats extends Component {
                 getRequests: 0,
                 inactiveCars: 0,
                 putRequests: 0,
-                updateRequests: 0
+                postRequests: 0
             }]};
 
     }
@@ -30,43 +31,55 @@ class Stats extends Component {
 
     render() {
         const allStats = this.state.stats;
-        const columns = [{
-            Header: 'All Cars',
-            accessor: 'allCars'
-        },
-        {
-            Header: 'Active Cars',
-            accessor: 'activeCars'
-        },
-        {
-            Header: 'Inactive Cars',
-            accessor: 'inactiveCars'
-        },
-        {
-            Header: 'Get Requests',
-            accessor: 'getRequests'
-        },
-        {
-            Header: 'Post Requests',
-            accessor: 'postRequests'
-        },
-        {
-            Header: 'Update Requests',
-            accessor: 'putRequests'
-        },
-        {
-            Header: 'Delete Requests',
-            accessor: 'deleteRequests'
-        }
-        ];
+        const headerStyle= {
+            textAlign: 'center',
+            padding: 20,
+        };
 
         return (
             <div>
-                <ReactTable
-                    data={allStats}
-                    columns={columns}
-                    minRows={3}
-                />
+                <div className='carsTable'>
+                    <h3 style={headerStyle}>Cars</h3>
+                    <Table striped bordered>
+                        <thead>
+                            <tr>
+                                <th>All Added Cars</th>
+                                <th>All Active Cars</th>
+                                <th>All Inactive Cars</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{allStats[0].allCars}</td>
+                                <td>{allStats[0].activeCars}</td>
+                                <td>{allStats[0].inactiveCars}</td>
+                            </tr>
+                        </tbody>
+                    </Table>
+                </div>
+                <div className="httpTable">
+                    <h3 style={headerStyle}>HTTP requests</h3>
+                    <Table striped bordered>
+                        <thead>
+                            <tr>
+                                <th>GET requests</th>
+                                <th>POST requests</th>
+                                <th>PUT requests</th>
+                                <th>DELETE requests</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{allStats[0].getRequests}</td>
+                                <td>{allStats[0].postRequests}</td>
+                                <td>{allStats[0].putRequests}</td>
+                                <td>{allStats[0].deleteRequests}</td>
+                            </tr>
+
+                        </tbody>
+                    </Table>
+                </div>
+
             </div>
 
 

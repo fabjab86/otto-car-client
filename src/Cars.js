@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import Stats from "./Stats";
-import CarForms from "./CarForm";
+import CarForm from "./CarForm";
 import CarsCardList from "./CarsCardList";
 import axios from 'axios';
-
+import Button from "react-bootstrap/Button";
+import './carsStyle.css'
 
 class Cars extends Component{
     constructor(props) {
@@ -38,17 +39,20 @@ class Cars extends Component{
 
         return (
             <div>
-                <button onClick={this.viewStats} >{this.isCarView() ? 'View stats' : 'View cars'}</button>
-
                 <div>
-                {this.state.view === 'cars' ?  (
-                    <div>
-           <CarForms getAllCars={this.getAllCars}/>
-           <CarsCardList allCars={this.state.allCars} getAllCars={this.getAllCars}/>
-                    </div>
-        ) : (
-            <Stats/>
-            )}
+                    {this.state.view === 'cars' ?  (
+                        <div>
+                           <CarForm getAllCars={this.getAllCars}/>
+                           <CarsCardList allCars={this.state.allCars} getAllCars={this.getAllCars}/>
+                        </div>
+                    ) : (
+                        <Stats/>
+                        )}
+                </div>
+                <div className={'viewCarOrStatsButton'}>
+                    <Button variant={this.isCarView() ? 'info' : 'primary'} onClick={this.viewStats}>
+                        {this.isCarView() ? 'View stats' : 'View cars'}
+                    </Button>
                 </div>
             </div>
 

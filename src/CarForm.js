@@ -1,12 +1,18 @@
 import React, {Component} from 'react';
-import Dropdown from 'react-dropdown'
 import axios from 'axios';
 import 'react-dropdown/style.css'
 import './index.css'
 import {carMakes, carModels, carYear} from "./helpers/helperObjects";
+import Form from "react-bootstrap/Form";
+import DropdownButton from "react-bootstrap/DropdownButton";
+import Dropdown from "react-bootstrap/Dropdown";
+import './carForm.css'
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 
 
-class CarForms extends Component {
+class CarForm extends Component {
     constructor(props) {
         super(props);
         this.state = {make: '', model: '', year: ''};
@@ -19,15 +25,15 @@ class CarForms extends Component {
 
 
     handleMakeChange(event) {
-        this.setState({make: event.value});
+        this.setState({make: event.target.innerText});
     }
 
     handleModelChange(event) {
-        this.setState({model: event.value});
+        this.setState({model: event.target.innerText});
     }
 
     handleYearChange(event) {
-        this.setState({year: event.value});
+        this.setState({year: event.target.innerText});
     }
 
 
@@ -47,44 +53,89 @@ class CarForms extends Component {
 
         return (
 
-            <div className="App">
-                <header className="App-header">
-                    <form onSubmit={this.handleSubmit}>
-                        <div className="DropDownMenu">
+                <div className={'mainFormDiv'}>
+                    <h2 className="formHeader">Add new car</h2>
+                    <Form>
+                        <div className={'dropDownOptions'}>
+                        <Form.Group controlId="formBasicEmail">
+                            <Row>
+                                <Col className={'dropDownLabel'}>
+                                    <Form.Label>Car Make</Form.Label>
+                                </Col>
+                                <Col>
+                            <DropdownButton
+                                id="dropdown-basic-button"
+                                title={this.state.make === "" ? "Select  " : this.state.make}
+                                variant={'success'}>
+                                    {carMakes.map((car, index) => {
+                                        return (
+                                        <Dropdown.Item
+                                            onClick={this.handleMakeChange}
+                                            key={index}>
+                                            {car.value}
+                                        </Dropdown.Item>
+                                        )
+                                    })}
+                            </DropdownButton>
+                                </Col>
+                            </Row>
 
-                            <label>
-                                Make:
-                                <Dropdown
-                                    options={carMakes}
-                                    onChange={this.handleMakeChange}
-                                    value={this.state.make}
-                                    placeholder="Select an option"/>
-                            </label>
-                            <label>
-                                Model:
-                                <Dropdown
-                                    options={carModels}
-                                    onChange={this.handleModelChange}
-                                    value={this.state.model}
-                                    placeholder="Select an option"/>
-                            </label>
-                            <label>
-                                Year:
-                                <Dropdown
-                                    options={carYear}
-                                    onChange={this.handleYearChange}
-                                    value={this.state.year}
-                                    placeholder="Select an option"/>
-                            </label>
+                        </Form.Group>
+                        <Form.Group controlId="formBasicEmail">
+                            <Row>
+                                <Col className={'dropDownLabel'}>
+                                    <Form.Label>Car Model</Form.Label>
+                                </Col>
+                            <Col>
+                                <DropdownButton
+                                    id="dropdown-basic-button"
+                                    title={this.state.model === "" ? "Select  " : this.state.model}
+                                    variant={'success'}>
+                                {carModels.map((car, index) => {
+                                    return (
+                                    <Dropdown.Item
+                                        onClick={this.handleModelChange}
+                                        key={index}>
+                                        {car.value}
+                                    </Dropdown.Item>
+                                    )
+                                })}
+                            </DropdownButton></Col>
+                            </Row>
+                        </Form.Group>
+                        <Form.Group controlId="formBasicEmail">
+                            <Row>
+                                <Col className={'dropDownLabel'}>
+                                    <Form.Label>Car Year</Form.Label></Col>
+                                <Col>
+                            <DropdownButton
+                                id="dropdown-basic-button"
+                                title={this.state.year === "" ? "Select  " : this.state.year}
+                                variant={'success'}>
+                                {carYear.map((car, index) => {
+                                    return (
+                                    <Dropdown.Item
+                                        onClick={this.handleYearChange}
+                                        key={index}>
+                                        {car.value}
+                                    </Dropdown.Item>
+                                    )
+                                })}
+                            </DropdownButton></Col>
+                            </Row>
+                        </Form.Group>
+                            <Button
+                                variant="primary"
+                                type="submit"
+                                onClick={this.handleSubmit}>
+                                Submit
+                            </Button>
                         </div>
-                        <input type="submit" value="Submit"/>
-                    </form>
-
-                </header>
-            </div>
+                    </Form>
+                </div>
         )
     }
 
 }
 
-export default CarForms;
+export default CarForm;

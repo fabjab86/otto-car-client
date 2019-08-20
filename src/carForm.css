@@ -1,0 +1,27 @@
+.dropDownOptions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 30px;
+    background-color: white;
+    align-items: center;
+    border-radius: 10px;
+
+}
+
+.dropDownLabel {
+    padding-top: 5px;
+    font-size: large;
+    font-weight: bold;
+}
+
+.mainFormDiv {
+    border-radius: 10px;
+    border: black solid 3px;
+    margin: 30px 20px 40px 20px;
+
+}
+
+.formHeader {
+    padding: 10px
+}
