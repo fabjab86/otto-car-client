@@ -20,7 +20,7 @@ This is an SPA built with React that utilizes a REST API built with node.
 
 
 ### <a name="howto"></a>How to use :
-####Requirement  
+#### Requirement  
 You must clone the [ottoCarServer](https://github.com/fabjab86/ottoCarServer) project and run the server locally  
 _Step 1_  
 `git clone git@github.com:fabjab86/otto-car-client.git`  
@@ -35,7 +35,7 @@ To run the linter `npm run lint`
 
 ### <a name="reqs"></a>Code Requirement :
 
-####Front End
+#### Front End
 The front-end must contain two views.
 
 The first view (Cars) contains a form and a table, where a user can add and view cars.
