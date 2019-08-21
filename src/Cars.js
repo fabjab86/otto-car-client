@@ -53,7 +53,7 @@ class Cars extends Component{
         return (
             <div>
                 <div className="mainHeader">
-                    <img src={require("./otto-car-logo.png")} alt="logo" />
+                    <img src={require("./carLogo.jpeg")} alt="logo" id='carImage'/>
                     <div className={'viewCarOrStatsButton'}>
                         <Button variant={this.isCarView() ? 'info' : 'primary'} onClick={this.viewStats}>
                             {this.isCarView() ? 'View stats' : 'View cars'}

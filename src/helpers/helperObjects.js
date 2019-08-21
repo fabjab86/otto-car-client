@@ -8,12 +8,12 @@ export const carMakes = [
 ];
 
 export const carModels = [
-    { value: 'ALPINA B10 BITURBO'},
-    { value: 'BMW M3' },
-    { value: 'FIESTA' },
-    { value: 'ECOSPORT' },
-    { value: 'NEW MONDEO' },
-    { value: 'NEW RANGER'},
+    { value: 'one'},
+    { value: 'two' },
+    { value: 'three' },
+    { value: 'four' },
+    { value: 'five' },
+    { value: 'six'},
 ];
 
 

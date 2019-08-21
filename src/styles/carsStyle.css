@@ -18,6 +18,11 @@
 
 }
 
+#carImage {
+    height: 140px;
+    width: 288px;
+}
+
 .mainHeader  .viewCarOrStatsButton {
     padding: 20px;
     float: right;
