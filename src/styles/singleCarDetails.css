@@ -7,3 +7,11 @@
     display: flex;
     justify-content: space-between;
 }
+
+
+#para {
+    font-size: 12px;
+    clear: left;
+    margin-left: 220px;
+    margin-top: 8px;
+}

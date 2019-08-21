@@ -1,3 +1,14 @@
 .editCardDetailsRow {
     padding-top: 10px;
 }
+
+#paraEditCar {
+    font-size: 14px;
+    margin-left: 40px;
+    margin-top: 6px;
+}
+
+.editCarTitle {
+    display: flex;
+    justify-content: center;
+}

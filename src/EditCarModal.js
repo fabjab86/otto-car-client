@@ -102,7 +102,9 @@ class EditCarModal extends Component {
             >
                 <Modal.Header closeButton onHide={() => this.onClose()}>
                     <Modal.Title id="contained-modal-title-vcenter">
-                        Edit Car Details
+                        <div className={'editCarTitle'}>
+                            <h4>Edit Car</h4> <p id={'paraEditCar'}>{this.props.car.car_id}</p>
+                        </div>
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
