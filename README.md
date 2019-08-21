@@ -6,7 +6,7 @@
 [Sample Views](#sample) <br>
 
 ### Introduction  
-This is an SPA built with React that utilizes a REST API built with node. Hosted on [Firebase]()
+This is an SPA built with React that utilizes a REST API built with node. Hosted on [Heroku](https://farah-cars.herokuapp.com/)
 
 ### <a name="testcase"></a>Test Case Scenario :
 
