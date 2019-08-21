@@ -2,12 +2,11 @@
 
 [Test case scenario](#testcase) |
 [How to use](#howto)|
-[Test](#test) |
 [Code Requirements](#reqs)|
 [Sample Views](#sample) <br>
 
 ### Introduction  
-This is an SPA built with React that utilizes a REST API built with node.
+This is an SPA built with React that utilizes a REST API built with node. Hosted on [Firebase]()
 
 ### <a name="testcase"></a>Test Case Scenario :
 
@@ -20,18 +19,14 @@ This is an SPA built with React that utilizes a REST API built with node.
 
 
 ### <a name="howto"></a>How to use :
-#### Requirement  
-You must clone the [ottoCarServer](https://github.com/fabjab86/ottoCarServer) project and run the server locally  
-_Step 1_  
+> _Step 1_  
 `git clone git@github.com:fabjab86/otto-car-client.git`  
-_Step 2_  
-From the command line type `npm start`  
-_Step 3_
-The browser will open localhost:3030 then you can interact with the website 
 
-### <a name="test"></a>How to test :
-Regretfully there are no tests at the moment.  
-To run the linter `npm run lint`  
+> _Step 2_  
+From the command line type `npm start`  
+
+>_Step 3_  
+The browser will open  automatically so you can interact with the website 
 
 ### <a name="reqs"></a>Code Requirement :
 
