@@ -81,13 +81,13 @@ class Cars extends Component{
 
         return (
             <div>
-                <Alert color="info" isOpen={this.state.viewEditedAlert}>
+                <Alert color="success" isOpen={this.state.viewEditedAlert}>
                     Car successfully edited
                 </Alert>
                 <Alert color="danger" isOpen={this.state.viewDeletedAlert}>
                     Car successfully deleted
                 </Alert>
-                <Alert color="info" isOpen={this.state.viewCarAddedAlert}>
+                <Alert color="success" isOpen={this.state.viewCarAddedAlert}>
                     Car successfully added
                 </Alert>
                 <div className="mainHeader">
