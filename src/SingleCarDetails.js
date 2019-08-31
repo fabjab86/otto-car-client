@@ -8,6 +8,7 @@ import ButtonToolbar from "react-bootstrap/ButtonToolbar";
 import PropTypes from 'prop-types';
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
+import DeleteCarModal from "./DeleteCarModal";
 
 
 const SingleCarDetails = ({car, getAllCars}) => {
@@ -43,6 +44,11 @@ const SingleCarDetails = ({car, getAllCars}) => {
                         variant={'secondary'}
                         size="sm">
                         <Dropdown.Item>
+                            <Button variant="link" onClick={() => {}}>
+                                View
+                            </Button>
+                        </Dropdown.Item>
+                        <Dropdown.Item>
                             <Button variant="link" onClick={() => setEditModalShow(true)}>
                                 Edit
                             </Button>
@@ -56,12 +62,15 @@ const SingleCarDetails = ({car, getAllCars}) => {
                         <Dropdown.Item >
                             <Button
                                 variant="link"
-                                onClick={() => {if (window.confirm('Are you sure you wish to delete this item?')) deleteCar(car.car_id)}}>
+                                onClick={() => setDeleteModalShow(true)}
+                            >
                                 Delete
                             </Button>
-                        </Dropdown.Item>
-
-                        <Dropdown.Item >View
+                            <DeleteCarModal
+                                show={showDeleteModal}
+                                onHide={() => setDeleteModalShow(false)}
+                                confirm={() => deleteCar(car.car_id) }
+                            />
                         </Dropdown.Item>
                     </DropdownButton>
                 </ButtonToolbar>
