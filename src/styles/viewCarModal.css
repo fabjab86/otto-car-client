@@ -1,0 +1,27 @@
+.viewCarTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#paraViewCar {
+    font-size: 20px;
+    margin-left: 20px;
+    padding-top: 10px;
+    font-weight: bold
+}
+
+.row1 {
+    background-color: #F5F5F5;
+    padding: 20px
+}
+
+
+.row2 {
+    padding: 20px
+}
+
+
+.item {
+    font-weight: bold
+}

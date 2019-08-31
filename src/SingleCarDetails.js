@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
 import DeleteCarModal from "./DeleteCarModal";
+import ViewCarModal from "./ViewCarModal";
 
 
 const SingleCarDetails = ({car, getAllCars}) => {
@@ -27,6 +28,7 @@ const SingleCarDetails = ({car, getAllCars}) => {
 
     const [showEditModal, setEditModalShow] = React.useState(false);
     const [showDeleteModal, setDeleteModalShow] = React.useState(false);
+    const [showViewCarModal, setViewCarModalShow] = React.useState(false);
 
 
     return(
@@ -44,9 +46,14 @@ const SingleCarDetails = ({car, getAllCars}) => {
                         variant={'secondary'}
                         size="sm">
                         <Dropdown.Item>
-                            <Button variant="link" onClick={() => {}}>
+                            <Button variant="link" onClick={() => setViewCarModalShow(true)}>
                                 View
                             </Button>
+                            <ViewCarModal
+                                car={car}
+                                show={showViewCarModal}
+                                onHide={() => setViewCarModalShow(false)}
+                            />
                         </Dropdown.Item>
                         <Dropdown.Item>
                             <Button variant="link" onClick={() => setEditModalShow(true)}>
@@ -75,7 +82,7 @@ const SingleCarDetails = ({car, getAllCars}) => {
                     </DropdownButton>
                 </ButtonToolbar>
 
-                <Card.Img variant="top" src={require("./defaultCar.png")} />
+                <Card.Img variant="top" src={require("./images/defaultCar.png")} />
                 <Card.Body>
                     <Card.Title>{car.make}</Card.Title>
                     <Card.Text>

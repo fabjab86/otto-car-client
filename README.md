@@ -39,9 +39,9 @@ The second view (Statistics) contains a table with statistics, described below.
 
 ### <a name="sample"></a>Sample Views :
 
-![](src/Screenshot1.png) <br>    
-![](src/Screenshot2.png) <br>  
-![](src/Screenshot3.png) <br>  
-![](src/Screenshot4.png) <br>  
-![](src/Screenshot5.png) <br>  
+![](src/images/Screenshot1.png) <br>    
+![](src/images/Screenshot2.png) <br>  
+![](src/images/Screenshot3.png) <br>  
+![](src/images/Screenshot4.png) <br>  
+![](src/images/Screenshot5.png) <br>  
 
