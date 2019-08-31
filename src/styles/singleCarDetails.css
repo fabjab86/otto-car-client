@@ -2,10 +2,9 @@
     padding:8px;
 }
 
-.editAndDeleteButtons {
 
-    display: flex;
-    justify-content: space-between;
+#dropdown-basic-button {
+    margin-left: 200px;
 }
 
 

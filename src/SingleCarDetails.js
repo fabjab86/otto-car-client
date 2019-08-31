@@ -6,6 +6,8 @@ import './styles/singleCarDetails.css'
 import EditCarModal from "./EditCarModal";
 import ButtonToolbar from "react-bootstrap/ButtonToolbar";
 import PropTypes from 'prop-types';
+import DropdownButton from "react-bootstrap/DropdownButton";
+import Dropdown from "react-bootstrap/Dropdown";
 
 
 const SingleCarDetails = ({car, getAllCars}) => {
@@ -13,10 +15,8 @@ const SingleCarDetails = ({car, getAllCars}) => {
     const deleteCar = (carId) => {
 
         axios.delete(`/cars?carId='${carId}'`)
-            .then((response) => {
-                console.log(response);
+            .then(() => {
                 getAllCars();
-                alert(response.data.message)
             })
             .catch(err => {
                 alert(err);
@@ -24,7 +24,8 @@ const SingleCarDetails = ({car, getAllCars}) => {
             })
     };
 
-    const [modalShow, setModalShow] = React.useState(false);
+    const [showEditModal, setEditModalShow] = React.useState(false);
+    const [showDeleteModal, setDeleteModalShow] = React.useState(false);
 
 
     return(
@@ -34,27 +35,43 @@ const SingleCarDetails = ({car, getAllCars}) => {
                 <div id={'para'}>
                 <p style={{fontWeight: 'bold'}}>ID: {car.car_id}</p>
                 </div>
+
+                <ButtonToolbar className={"editAndDeleteButtons"}>
+                    <DropdownButton
+                        id="dropdown-basic-button"
+                        title="Options"
+                        variant={'secondary'}
+                        size="sm">
+                        <Dropdown.Item>
+                            <Button variant="link" onClick={() => setEditModalShow(true)}>
+                                Edit
+                            </Button>
+                            <EditCarModal
+                                getAllCars={getAllCars}
+                                car={car}
+                                show={showEditModal}
+                                onHide={() => setEditModalShow(false)}
+                            />
+                        </Dropdown.Item>
+                        <Dropdown.Item >
+                            <Button
+                                variant="link"
+                                onClick={() => {if (window.confirm('Are you sure you wish to delete this item?')) deleteCar(car.car_id)}}>
+                                Delete
+                            </Button>
+                        </Dropdown.Item>
+
+                        <Dropdown.Item >View
+                        </Dropdown.Item>
+                    </DropdownButton>
+                </ButtonToolbar>
+
                 <Card.Img variant="top" src={require("./defaultCar.png")} />
                 <Card.Body>
                     <Card.Title>{car.make}</Card.Title>
                     <Card.Text>
                         {car.model} {car.model_year}
                     </Card.Text>
-                    <div className={'editAndDeleteButtons'}>
-                    <ButtonToolbar>
-                        <Button variant="primary" onClick={() => setModalShow(true)}>
-                            Edit
-                        </Button>
-
-                        <EditCarModal
-                            getAllCars={getAllCars}
-                            car={car}
-                            show={modalShow}
-                            onHide={() => setModalShow(false)}
-                        />
-                    </ButtonToolbar>
-                    <Button variant="danger" onClick={() => {if (window.confirm('Are you sure you wish to delete this item?')) deleteCar(car.car_id)}}>Delete</Button>
-                    </div>
                 </Card.Body>
             </Card>
         </div>
