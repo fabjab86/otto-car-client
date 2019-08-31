@@ -28,3 +28,15 @@
     float: right;
     margin-right: 10px;
 }
+
+.carsCardsDiv {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-left: 50px
+}
+
+.spinnerDiv {
+    display: flex;
+    justify-content: center;
+}

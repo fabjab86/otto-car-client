@@ -39,7 +39,7 @@ class Stats extends Component {
         };
 
         return (
-            <div>
+            <div className={'tablesDiv'}>
                 <div className='carsTable'>
                     <h3 style={headerStyle}>Cars</h3>
                     <Table striped bordered>
@@ -61,7 +61,7 @@ class Stats extends Component {
                 </div>
                 <div className="httpTable">
                     <h3 style={headerStyle}>HTTP requests</h3>
-                    <Table striped bordered>
+                    <Table striped bordered responsive="sm">
                         <thead>
                             <tr>
                                 <th>GET requests</th>

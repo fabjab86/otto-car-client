@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import PropTypes from 'prop-types';
+import axios from "axios";
 
 class DeleteCarModal extends Component {
 
@@ -9,12 +10,22 @@ class DeleteCarModal extends Component {
         this.props.onHide();
     };
 
-    confirmDeleteCar = () => {
-        this.props.confirm();
+
+    deleteCar = (carId) => {
+        axios.delete(`/cars?carId='${carId}'`)
+            .then(() => this.props.onHide())
+            .then(() => {
+                this.props.getAllCars();
+            })
+            .then(this.props.onDeleteShow())
+            .catch(err => {
+                alert(err);
+                console.log(err)
+            })
     };
 
     render() {
-
+        const {id} = this.props;
         return (
             <Modal
                 {...this.props}
@@ -32,7 +43,7 @@ class DeleteCarModal extends Component {
 
                 <Modal.Footer className={"deleteModalButtons"}>
                     <Button onClick={() => this.onClose()} variant={'primary'}>Cancel</Button>
-                    <Button onClick={() => this.confirmDeleteCar()} variant={'danger'}>Delete</Button>
+                    <Button onClick={() => this.deleteCar(id)} variant={'danger'}>Delete</Button>
                 </Modal.Footer>
             </Modal>
         )
@@ -42,7 +53,8 @@ class DeleteCarModal extends Component {
 
 DeleteCarModal.propTypes = {
     onHide: PropTypes.func.isRequired,
-    confirm: PropTypes.func.isRequired
+    onDeleteShow: PropTypes.func,
+    getAllCars: PropTypes.func.isRequired
 };
 
 export default DeleteCarModal

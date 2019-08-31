@@ -1,3 +1,5 @@
+
+
 .carsTable {
     margin: 80px 90px 90px 90px;
     border: cadetblue solid 10px;
@@ -8,4 +10,25 @@
     margin: 80px 90px 90px 90px;
     border: yellowgreen solid 10px;
     border-radius: 10px;
+}
+
+@media only screen and (max-width: 570px) {
+
+    .tablesDiv {
+        display: flex;
+        flex-direction: column;
+    }
+    .carsTable {
+         padding: 10px;
+         width: 300px;
+         margin: auto;
+    }
+
+
+    .httpTable {
+        padding: 10px;
+        width: 300px;
+        margin: auto;
+        margin-top: 10px;
+    }
 }

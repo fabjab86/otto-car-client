@@ -9,7 +9,8 @@
     "react-bootstrap": "^1.0.0-beta.11",
     "react-dom": "^16.9.0",
     "react-native-reanimated": "^1.2.0",
-    "react-scripts": "3.1.1"
+    "react-scripts": "3.1.1",
+    "reactstrap": "^8.0.1"
   },
   "proxy": "https://otto-car-server.herokuapp.com",
   "scripts": {

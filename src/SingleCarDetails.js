@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import './styles/singleCarDetails.css'
@@ -12,19 +11,7 @@ import DeleteCarModal from "./DeleteCarModal";
 import ViewCarModal from "./ViewCarModal";
 
 
-const SingleCarDetails = ({car, getAllCars}) => {
-
-    const deleteCar = (carId) => {
-
-        axios.delete(`/cars?carId='${carId}'`)
-            .then(() => {
-                getAllCars();
-            })
-            .catch(err => {
-                alert(err);
-                console.log(err)
-            })
-    };
+const SingleCarDetails = ({car, getAllCars, onEditShow, onDeleteShow}) => {
 
     const [showEditModal, setEditModalShow] = React.useState(false);
     const [showDeleteModal, setDeleteModalShow] = React.useState(false);
@@ -64,6 +51,7 @@ const SingleCarDetails = ({car, getAllCars}) => {
                                 car={car}
                                 show={showEditModal}
                                 onHide={() => setEditModalShow(false)}
+                                onEditShow={onEditShow}
                             />
                         </Dropdown.Item>
                         <Dropdown.Item >
@@ -75,8 +63,10 @@ const SingleCarDetails = ({car, getAllCars}) => {
                             </Button>
                             <DeleteCarModal
                                 show={showDeleteModal}
+                                getAllCars={getAllCars}
                                 onHide={() => setDeleteModalShow(false)}
-                                confirm={() => deleteCar(car.car_id) }
+                                id={car.car_id}
+                                onDeleteShow={onDeleteShow}
                             />
                         </Dropdown.Item>
                     </DropdownButton>

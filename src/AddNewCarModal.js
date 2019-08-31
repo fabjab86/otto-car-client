@@ -44,10 +44,11 @@ class AddNewCarModal extends Component {
             make: this.state.make,
             model: this.state.model,
             model_year: this.state.model_year,
-        }).then(response => {
-            this.setState({make: '', model: '', model_year: ''});
-            alert(response.data.message);
-        }).then(() => this.props.getAllCars())
+        }).then(() => {
+            this.setState({make: '', model: '', model_year: ''})
+        })
+        .then(() => this.props.onAddedAlert())
+        .then(() => this.props.getAllCars())
         .catch(err => {
             if (err.response.status === 422) {
                 alert('Invalid request');

@@ -19,6 +19,7 @@ const AddNewCarButton = (props) => {
                     getAllCars={props.getAllCars}
                     show={modalShow}
                     onHide={() => setModalShow(false)}
+                    onAddedAlert={props.onAddedAlert}
                 />
             </ButtonToolbar>
         </div>
@@ -28,6 +29,7 @@ const AddNewCarButton = (props) => {
 
 AddNewCarButton.propTypes = {
     getAllCars: PropTypes.func.isRequired,
+    onAddedAlert: PropTypes.func,
 };
 
 export default AddNewCarButton;

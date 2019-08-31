@@ -1,12 +1,16 @@
 import React from 'react';
-import './styles/singleCardStyle.css'
 import SingleCarDetails from "./SingleCarDetails";
 import PropTypes from 'prop-types';
 
-const SingleCarCard = ({car, getAllCars}) => {
+const SingleCarCard = ({car, getAllCars, onEditShow, onDeleteShow}) => {
 
     return (
-       <SingleCarDetails car={car} getAllCars={getAllCars} />
+       <SingleCarDetails
+           car={car}
+           getAllCars={getAllCars}
+           onEditShow={onEditShow}
+           onDeleteShow={onDeleteShow}
+       />
     )
 };
 

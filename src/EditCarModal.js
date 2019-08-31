@@ -16,7 +16,12 @@ import axios from 'axios';
 class EditCarModal extends Component {
     constructor(props) {
         super(props);
-        this.state={active:'', date_added: '', make: '', model: '', model_year:''};
+        this.state={
+            active:'',
+            date_added: '',
+            make: '',
+            model: '',
+            model_year:''};
 
         this.handleMakeChange = this.handleMakeChange.bind(this);
         this.handleModelChange = this.handleModelChange.bind(this);
@@ -69,10 +74,12 @@ class EditCarModal extends Component {
                 model: this.state.model,
                 model_year: this.state.model_year,
                 active: this.state.active
-            }).then(response => console.log(response))
+            })
             .then(this.props.onHide())
             .then(() => this.props.getAllCars())
-            .catch((err) => {       if (err.response.status === 422) {
+            .then(this.props.onEditShow())
+            .catch((err) => {
+                if (err.response.status === 422) {
                 alert('Invalid request');
                 console.log(err)
             }
@@ -84,14 +91,14 @@ class EditCarModal extends Component {
 
     render() {
         const style = {
-        para: {
-            fontSize: 10
-        },
+            para: {
+                fontSize: 10
+            },
             span: {
                 fontSize: 18
 
             }
-    };
+        };
 
         return (
             <Modal
@@ -205,7 +212,12 @@ class EditCarModal extends Component {
                     </div>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button onClick={() => {this.editCarDetailsApi(this.props.car.car_id)}} variant={'primary'}>Edit</Button>
+                    <Button
+                        onClick={() => {this.editCarDetailsApi(this.props.car.car_id)}}
+                        variant={'primary'}
+                    >
+                        Edit
+                    </Button>
                 </Modal.Footer>
             </Modal>
         );
@@ -216,7 +228,8 @@ class EditCarModal extends Component {
 EditCarModal.propTypes = {
     car: PropTypes.object.isRequired,
     getAllCars: PropTypes.func.isRequired,
-    onHide: PropTypes.func.isRequired
+    onHide: PropTypes.func.isRequired,
+    onEditShow: PropTypes.func
 };
 
 
