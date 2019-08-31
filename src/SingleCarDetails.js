@@ -32,7 +32,7 @@ const SingleCarDetails = ({car, getAllCars}) => {
         <div className={"singleCarDetails"}>
             <Card style={{ width: '18rem' }}>
                 <div id={'para'}>
-                <p >{car.car_id.slice(0, 8)}</p>
+                <p style={{fontWeight: 'bold'}}>ID: {car.car_id}</p>
                 </div>
                 <Card.Img variant="top" src={require("./defaultCar.png")} />
                 <Card.Body>

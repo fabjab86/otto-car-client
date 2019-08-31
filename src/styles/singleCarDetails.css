@@ -10,8 +10,9 @@
 
 
 #para {
-    font-size: 12px;
-    clear: left;
-    margin-left: 220px;
+    display: flex;
+    justify-content: center;
+    font-size: 11px;
     margin-top: 8px;
+    text-decoration: underline solid #D3D3D3;
 }
