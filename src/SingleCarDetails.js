@@ -33,7 +33,7 @@ const SingleCarDetails = ({car, getAllCars, onEditShow, onDeleteShow}) => {
                         variant={'secondary'}
                         size="sm">
                         <Dropdown.Item>
-                            <Button variant="link" onClick={() => setViewCarModalShow(true)}>
+                            <Button variant="link" onClick={() => setViewCarModalShow(true)} style={{color: 'black'}}>
                                 View
                             </Button>
                             <ViewCarModal
@@ -43,7 +43,7 @@ const SingleCarDetails = ({car, getAllCars, onEditShow, onDeleteShow}) => {
                             />
                         </Dropdown.Item>
                         <Dropdown.Item>
-                            <Button variant="link" onClick={() => setEditModalShow(true)}>
+                            <Button variant="link" onClick={() => setEditModalShow(true)} style={{color: 'black'}}>
                                 Edit
                             </Button>
                             <EditCarModal
@@ -54,10 +54,11 @@ const SingleCarDetails = ({car, getAllCars, onEditShow, onDeleteShow}) => {
                                 onEditShow={onEditShow}
                             />
                         </Dropdown.Item>
-                        <Dropdown.Item >
+                        <Dropdown.Item  id='dropDownItem'>
                             <Button
                                 variant="link"
                                 onClick={() => setDeleteModalShow(true)}
+                                id='deleteButton'
                             >
                                 Delete
                             </Button>
